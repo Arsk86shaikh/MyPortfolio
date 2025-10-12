@@ -46,8 +46,8 @@ const getProjects = async () => {
 
 const showProjects = (projects) => {
     const projectsContainer = document.querySelector(".work .box-container");
-    let projectsHTML = projects.map(project => `
-        <div class="grid-item" ">
+    const projectsHTML = projects.map(project => `
+        <div class="grid-item">
             <div class="box tilt" style="width: 380px; margin: 1rem">
                 <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.title}" />
                 <div class="content">
@@ -89,7 +89,7 @@ const showProjects = (projects) => {
 };
 
 // Load projects
-getProjects().then(data => showProjects(data));
+getProjects().then(showProjects);
 
 // ================================
 // Tawk.to Live Chat
