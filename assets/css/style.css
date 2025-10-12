@@ -877,124 +877,195 @@ header .navbar ul li a:hover {
 /* education media queries ends*/
 /* education section ends */
 
-/* work section starts */
+
+/* 🌟 Work Section */
 .work {
-  /* background: #010124; */
   background: linear-gradient(to bottom, #000031, #00002c);
+  padding: 2rem 0;
 }
+
 .work h2 {
   color: #fff;
   padding: 1rem;
+  text-align: center;
 }
+
 .work .heading span {
   color: rgb(255, 230, 0);
 }
+
+/* 🔹 Project container */
 .work .box-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 2rem;
+  flex-wrap: wrap; /* allow wrapping instead of horizontal scroll */
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
+
+/* 🔹 Individual project card */
 .work .box-container .box {
-  flex: 1 1 30rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  height: 480px;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
-  height: 30rem;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Hover animation */
+.work .box-container .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+/* 🔹 Project image */
 .work .box-container .box img {
-  height: 100%;
   width: 100%;
+  height: 60%;
   object-fit: cover;
 }
+
+/* 🔹 Content overlay (details section) */
 .work .box-container .box .content {
-  height: 100%;
-  width: 100%;
   position: absolute;
-  top: 85%;
-  left: 0;
-  background: rgba(255, 255, 255, 0.9);
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
-}
-.work .box-container .box .content .tag {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
-  padding-left: 1rem;
-  background: #ffd900;
+  padding: 1rem 1.2rem;
+  transition: all 0.4s ease-in-out;
 }
-.work .box-container .box .content .tag h3 {
-  font-size: 2rem;
-}
+
+/* Hover effect: lift up slightly */
 .work .box-container .box:hover .content {
-  top: 25%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.97);
 }
-.work .desc {
-  margin: 2rem;
+
+/* 🔹 Project title/tag */
+.work .box-container .box .content .tag {
+  background: #ffd900;
+  border-radius: 0.4rem;
+  padding: 0.4rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* 🔹 Tech stack badges */
+.work .box-container .box .content .tech-stack {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
-.work .desc p {
-  font-size: 1.5rem;
-}
-.work .desc .btns {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
-}
-.work .desc .btns .btn {
-  line-height: 0;
-  display: inline;
-  padding: 1.5rem 2.5rem;
-  border-radius: 0.5rem;
-  font-size: 1.5rem;
+
+.work .box-container .box .content .tech-stack span {
+  background: #310ae0;
   color: #fff;
-  background: rgb(12, 12, 12);
-  margin-right: 2rem;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
 }
-.work .desc .btns .btn:hover {
+
+/* 🔹 Description text */
+.work .box-container .box .content p {
+  font-size: 1.4rem;
+  color: #000;
+  margin-top: 0.8rem;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* 🔹 Buttons inside content */
+.work .box-container .box .content .btns {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.work .btn {
+  padding: 1rem 1.8rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  color: #fff;
+  background: #0c0c0c;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.work .btn:hover {
   background: #310ae0f5;
 }
+
+/* 🔹 View All button */
 .work .viewall {
   display: flex;
   justify-content: center;
+  margin-top: 2.5rem;
 }
+
 .work .viewall .btn {
-  position: relative;
-  line-height: 0;
   padding: 1.6rem 3rem;
   border-radius: 0.5em;
-  transition: 0.5s;
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-weight: 700;
   border: 2px solid #fff;
+  background: transparent;
   box-shadow: 0px 5px 10px rgba(65, 84, 241, 0.4);
-  text-align: center;
+  transition: all 0.5s;
+  font-size: 1.6rem;
 }
-.work .viewall .btn span {
-  font-weight: 600;
-  font-size: 1.7rem;
-  font-family: "Nunito", sans-serif;
-}
-.work .viewall .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.5rem;
-  transition: 0.3s;
-}
+
 .work .viewall .btn:hover {
   background: #fff;
   color: #000;
 }
-.work .viewall .btn:hover i {
-  transform: translateX(5px);
+
+/* 🔹 RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .work .box-container {
+    gap: 1.5rem;
+  }
+  .work .box-container .box {
+    max-width: 380px;
+    height: 460px;
+  }
 }
+
+@media (max-width: 768px) {
+  .work .box-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .work .box-container .box {
+    max-width: 320px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .work .box-container .box {
+    max-width: 280px;
+    height: 380px;
+  }
+  .work .box-container .box .content p {
+    font-size: 1.3rem;
+  }
+}
+
+
+
 /* work section ends */
 
 /* experience section starts */

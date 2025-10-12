@@ -136,55 +136,54 @@ async function init() {
 init();
 
 
-function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
-    let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
-        projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>`
-    });
-    projectsContainer.innerHTML = projectHTML;
-
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
-
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
-
+// Fetch projects JSON
+function fetchData(type = "projects") {
+    return fetch(`${type}/${type}.json`) // projects/projects.json
+        .then(response => response.json())
+        .then(data => data)
+        .catch(err => console.error("Error fetching JSON:", err));
 }
 
-fetchData().then(data => {
-    showSkills(data);
-});
+// Display projects dynamically
+function showProjects(projects) {
+    const projectsContainer = document.querySelector(".work .box-container");
+    let projectsHTML = "";
 
-fetchData("projects").then(data => {
-    showProjects(data);
-});
+    // Show only first 3 projects
+    projects.slice(0, 3).forEach(project => {
+        projectsHTML += `
+        <div class="grid-item" href="${project.link}">
+            <div class="box tilt" >
+                <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.title}" />
+                <div class="content">
+                <div class="tag"><h3>${project.title}</h3></div>
+                <div class="desc">
+                <p>${project.description}</p>
+                <div class="tech-stack">
+                ${project.techStack.map(tech => `<span class="tech">${tech}</span>`).join(' ')}
+                </div>
+                <div class="btns">
+                    <a href="${project.link}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    projectsContainer.innerHTML = projectsHTML;
+
+    // Initialize Vanilla Tilt
+    VanillaTilt.init(document.querySelectorAll(".tilt"), { max: 15 });
+
+    // Scroll Reveal Animation
+    ScrollReveal().reveal('#work .box', { origin: 'top', distance: '80px', duration: 1000, interval: 200 });
+}
+
+// Fetch and render projects
+fetchData("projects").then(data => showProjects(data));
+
+
 
 // <!-- tilt js effect starts -->
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
