@@ -71,6 +71,7 @@ function showProjects(projects) {
             columnWidth: 200
         }
     });
+    
 
     // filter items on button click (if you have categories)
     $('.button-group').on('click', 'button', function () {
