@@ -569,8 +569,8 @@ header .navbar ul li a:hover {
 
 @media (max-width: 480px) {
   .bar {
-    width: 100px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
   .bar span {
     font-size: 0.75rem;
