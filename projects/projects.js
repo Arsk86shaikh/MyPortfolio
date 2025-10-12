@@ -27,7 +27,7 @@ $(document).ready(() => {
 document.addEventListener('visibilitychange', () => {
     const favicon = $("#favicon");
     if (document.visibilityState === "visible") {
-        document.title = "Projects | Portfolio Jigar Sable";
+        document.title = "Projects | Portfolio Ar Developer";
         favicon.attr("href", "/assets/images/favicon.png");
     } else {
         document.title = "Come Back To Portfolio";
@@ -47,7 +47,7 @@ const getProjects = async () => {
 const showProjects = (projects) => {
     const projectsContainer = document.querySelector(".work .box-container");
     let projectsHTML = projects.map(project => `
-        <div class="grid-item" href="${project.link}">
+        <div class="grid-item" ">
             <div class="box tilt" style="width: 380px; margin: 1rem">
                 <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.title}" />
                 <div class="content">
