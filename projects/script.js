@@ -1,11 +1,15 @@
-$(document).ready(function () {
-
+// ================================
+// Menu Toggle & Scroll Events
+// ================================
+$(document).ready(() => {
+    // Menu toggle
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
     });
 
-    $(window).on('scroll load', function () {
+    // Scroll and load actions
+    $(window).on('scroll load', () => {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
 
@@ -17,29 +21,32 @@ $(document).ready(function () {
     });
 });
 
-document.addEventListener('visibilitychange', function () {
+// ================================
+// Page Visibility Change
+// ================================
+document.addEventListener('visibilitychange', () => {
+    const favicon = $("#favicon");
     if (document.visibilityState === "visible") {
         document.title = "Projects | Portfolio Jigar Sable";
-        $("#favicon").attr("href", "/assets/images/favicon.png");
+        favicon.attr("href", "/assets/images/favicon.png");
     } else {
         document.title = "Come Back To Portfolio";
-        $("#favicon").attr("href", "/assets/images/favhand.png");
+        favicon.attr("href", "/assets/images/favhand.png");
     }
 });
 
-// fetch projects start
-function getProjects() {
-    return fetch("projects.json")
-        .then(response => response.json())
-        .then(data => data);
-}
+// ================================
+// Fetch & Display Projects
+// ================================
+const getProjects = async () => {
+    const response = await fetch("projects.json");
+    const data = await response.json();
+    return data;
+};
 
-function showProjects(projects) {
-    let projectsContainer = document.querySelector(".work .box-container");
-    let projectsHTML = "";
-
-    projects.forEach(project => {
-        projectsHTML += `
+const showProjects = (projects) => {
+    const projectsContainer = document.querySelector(".work .box-container");
+    let projectsHTML = projects.map(project => `
         <div class="grid-item" href="${project.link}">
             <div class="box tilt" style="width: 380px; margin: 1rem">
                 <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.title}" />
@@ -53,43 +60,44 @@ function showProjects(projects) {
                             ${project.techStack.map(tech => `<span class="tech">${tech}</span>`).join(' ')}
                         </div>
                         <div class="btns">
-                            <a href="${project.link}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="${project.link}" class="btn" target="_blank">
+                                <i class="fas fa-eye"></i> View
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>`;
-    });
+        </div>
+    `).join('');
 
     projectsContainer.innerHTML = projectsHTML;
 
-    // isotope filter if needed
-    var $grid = $('.box-container').isotope({
+    // Initialize Isotope
+    const $grid = $('.box-container').isotope({
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
-        masonry: {
-            columnWidth: 200
-        }
+        masonry: { columnWidth: 200 }
     });
-    
 
-    // filter items on button click (if you have categories)
+    // Filter items on button click
     $('.button-group').on('click', 'button', function () {
         $('.button-group').find('.is-checked').removeClass('is-checked');
         $(this).addClass('is-checked');
-        var filterValue = $(this).attr('data-filter');
+        const filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
     });
-}
+};
 
-getProjects().then(data => {
-    showProjects(data);
-});
+// Load projects
+getProjects().then(data => showProjects(data));
 
+// ================================
 // Tawk.to Live Chat
+// ================================
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+(() => {
+    const s1 = document.createElement("script");
+    const s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
     s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
     s1.charset = 'UTF-8';
@@ -97,11 +105,23 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     s0.parentNode.insertBefore(s1, s0);
 })();
 
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
-}
+// ================================
+// Disable Developer Tools
+// ================================
+document.onkeydown = (e) => {
+    const forbidden = [
+        123, // F12
+        'I'.charCodeAt(0),
+        'C'.charCodeAt(0),
+        'J'.charCodeAt(0),
+        'U'.charCodeAt(0)
+    ];
+
+    if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && forbidden.includes(e.keyCode)) ||
+        (e.ctrlKey && e.keyCode === 85)
+    ) {
+        return false;
+    }
+};
