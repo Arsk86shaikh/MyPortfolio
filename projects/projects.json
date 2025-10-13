@@ -10,7 +10,7 @@
     "title": "DeCodeX",
     "description": "An AI-powered modern coding platform built with React and OpenRouter AI APIs, providing real-time coding assistance and intelligent developer tools.",
     "techStack": ["React.js", "Node.js", "Express.js", "TailwindCSS", "OpenRouter AI API"],
-    "image": "decodex.png",
+    "image": "Decodex.png",
     "link": "https://github.com/Saadsyed07/DeCodeX"
   },
   {
