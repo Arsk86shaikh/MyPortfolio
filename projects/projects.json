@@ -1,35 +1,49 @@
 [
   {
     "title": "BookNoteHub",
-    "description": "A web app to track and manage non-fiction books with notes, ratings, and reading history using PostgreSQL database.",
+    "description": "A full-stack web application to track and manage non-fiction books. Users can add notes, ratings, and track their reading history with PostgreSQL database support.",
     "techStack": ["EJS", "TailwindCSS", "JavaScript", "Node.js", "Express.js", "PostgreSQL"],
     "image": "bookmanagement.png",
     "link": "https://github.com/Arsk86shaikh/BookNoteHub"
   },
   {
     "title": "DeCodeX",
-    "description": "A modern coding platform built with React and AI APIs, providing real-time solutions with a smooth developer experience.",
+    "description": "An AI-powered modern coding platform built with React and OpenRouter AI APIs, providing real-time coding assistance and intelligent developer tools.",
     "techStack": ["React.js", "Node.js", "Express.js", "TailwindCSS", "OpenRouter AI API"],
-    "image": "Decodex.png",
+    "image": "decodex.png",
     "link": "https://github.com/Saadsyed07/DeCodeX"
   },
   {
     "title": "AI Voice Agent",
-    "description": "An AI-powered voice agent using Murf AI API with Python for backend data handling, integrated with Pandas libraries and a frontend built using HTML, CSS, and JavaScript.",
+    "description": "An intelligent voice assistant built using Murf AI API with Python backend and Pandas for data handling. The frontend is created with HTML, CSS, and JavaScript for interactive user experience.",
     "techStack": ["Python", "Pandas", "HTML5", "CSS3", "JavaScript", "Murf AI API"],
     "image": "aiagent.png",
     "link": "https://github.com/Arsk86shaikh/Ai-Voice-Agent"
   },
   {
+    "title": "E-Commerce Web",
+    "description": "A responsive e-commerce web application built with Node.js, Express.js, and EJS, featuring product browsing, add-to-cart, and purchase functionality with a modern UI design.",
+    "techStack": ["EJS", "CSS3", "JavaScript (ES6)", "JSON", "Express.js", "Node.js"],
+    "image": "ecommerce.jpg",
+    "link": "https://github.com/Arsk86shaikh/E-commerce_web"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "A personal portfolio website showcasing projects, skills, and contact information, designed with responsive styling and modern UI components.",
+    "techStack": ["EJS", "TailwindCSS", "CSS3", "JavaScript (ES6)", "Node.js"],
+    "image": "portfolio.jpg",
+    "link": "https://github.com/Arsk86shaikh/portfolio-website"
+  },
+  {
     "title": "Blog Platform",
-    "description": "A blogging web application for creating, editing, and managing blog posts with dynamic rendering using EJS templates.",
+    "description": "A dynamic blogging web application allowing users to create, edit, and manage posts with EJS templates and Express routing on the backend.",
     "techStack": ["EJS", "JavaScript", "Node.js", "Express.js"],
     "image": "bloggram.png",
     "link": "https://github.com/Arsk86shaikh/blog"
   },
   {
-    "title": "Fanta Product Sale Website",
-    "description": "An interactive e-commerce style website for Fanta product showcase with dynamic data loading using JSON.",
+    "title": "Fanta Product Showcase",
+    "description": "An interactive single-page website for showcasing Fanta products, featuring smooth animations, dynamic data loading using JSON, and a colorful modern UI.",
     "techStack": ["HTML5", "CSS3", "JavaScript (ES6)", "JSON"],
     "image": "fanta.png",
     "link": "https://fanta-product-sale-website.vercel.app/"

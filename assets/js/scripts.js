@@ -139,7 +139,7 @@ function fetchProjects() {
 
 function showProjects(projects) {
   const projectsContainer = document.querySelector(".work .box-container");
-  projectsContainer.innerHTML = projects.slice(0, 3).map(project => `
+  projectsContainer.innerHTML = projects.map(project => `
     <div class="grid-item">
       <div class="box tilt">
         <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.title}" />
