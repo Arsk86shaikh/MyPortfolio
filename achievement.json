@@ -1,0 +1,28 @@
+[
+  {
+    "image": "https://godwins.in/img/logocolor.png",
+    "title": "Programming With Python",
+    "description": "Completed a professional course in Python programming, mastering core concepts and advanced techniques for software development.",
+    "buttons": [
+      { "text": "Certification", "link": "/certificates/training.pdf" },
+      { "text": "Award Certificate", "link": "/certificates/awardstraining.pdf" }
+    ]
+  },
+  {
+    "image": "https://tse4.mm.bing.net/th?id=OIP.jkoABzk2BnQGR6G3jh1VmgAAAA&pid=Api&P=0&h=180",
+    "title": "Aspire AWS Internship",
+    "description": "Completed an internship with Aspire For Her and AWS, focusing on empowering women through innovative cloud solutions.",
+    "buttons": [
+      { "text": "Certification", "link": "/certificates/certificate.pdf" }
+    ]
+  },
+  {
+    "image": "https://tse3.mm.bing.net/th?id=OIP.fmkiygkWKCub1SL0SJPvQQHaEA&pid=Api&P=0&h=180",
+    "title": "NxtWave Programming Certification",
+    "description": "Successfully completed the NxtWave training program, mastering core programming concepts and practical application in real-world projects.",
+    "buttons": [
+      { "text": "Certification", "link": "/certificates/nxtwave.pdf" },
+      { "text": "Award", "link": "/certificates/award.pdf" }
+    ]
+  }
+]

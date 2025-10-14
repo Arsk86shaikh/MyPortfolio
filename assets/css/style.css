@@ -1063,6 +1063,198 @@ header .navbar ul li a:hover {
     font-size: 1.3rem;
   }
 }
+/* 🌟 Achievement Section */
+.achievements {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  overflow: hidden;
+}
+
+
+
+.achievements h2 i {
+  color: gold;
+  animation: shine 2s infinite alternate;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  color: #555;
+}
+
+/* ✨ Card Grid Layout */
+.achievement-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+  
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 1rem;
+}
+
+/* 🏆 Card Style */
+.achievement-item {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 2rem 1.5rem;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.achievement-item::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 120, 255, 0.05), transparent 60%);
+  transform: scale(0);
+  transition: transform 0.6s ease;
+}
+
+.achievement-item:hover::before {
+  transform: scale(1);
+}
+
+.achievement-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* 🖼 Image Styling */
+.achievement-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+
+.achievement-item:hover img {
+  transform: scale(1.1);
+}
+
+/* 🏅 Title + Description */
+.achievement-item h2{
+  font-size: 2.3rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.achievement-item p {
+  color: #555;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+  font-family: "Nunito", sans-serif;
+}
+
+/* 🔘 Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #0078ff;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #005fcc;
+  transform: scale(1.08);
+}
+
+/* ✨ Trophy Animation */
+@keyframes shine {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(15deg) scale(1.1); }
+}
+
+/* 🌍 Responsive Design */
+@media (max-width: 992px) {
+  .achievements h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .achievement-item img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .achievement-list {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements {
+    padding: 3rem 1rem;
+  }
+
+  .achievement-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .achievement-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .achievement-item h3 {
+    font-size: 1.15rem;
+  }
+
+  .achievement-item p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements h1 {
+    font-size: 1.6rem;
+  }
+
+  .achievement-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
 
 
 

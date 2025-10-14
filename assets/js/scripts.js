@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
-  // Toggle Navbar
+  // === Navbar Toggle ===
   $('#menu').click(function () {
     $(this).toggleClass('fa-times');
     $('.navbar').toggleClass('nav-toggle');
   });
 
-  // Scroll and Load Events
+  // === Scroll and Load Events ===
   $(window).on('scroll load', function () {
     $('#menu').removeClass('fa-times');
     $('.navbar').removeClass('nav-toggle');
@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
   });
 
-  // Smooth Scrolling
+  // === Smooth Scrolling ===
   $('a[href*="#"]').on('click', function (e) {
     e.preventDefault();
     $('html, body').animate({
@@ -40,7 +40,7 @@ $(document).ready(function () {
     }, 500, 'linear');
   });
 
-  // Contact Form (EmailJS)
+  // === Contact Form (EmailJS) ===
   $("#contact-form").submit(function (event) {
     event.preventDefault();
 
@@ -48,30 +48,28 @@ $(document).ready(function () {
 
     emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
       .then(() => {
-        alert("Form Submitted Successfully");
+        alert("✅ Form Submitted Successfully!");
         $("#contact-form")[0].reset();
       })
       .catch(() => {
-        alert("Form Submission Failed! Try Again");
+        alert("❌ Form Submission Failed! Try Again.");
       });
   });
 
 });
 
-
-// Change Title + Favicon on Tab Change
+// === Title + Favicon on Tab Change ===
 document.addEventListener('visibilitychange', function () {
   if (document.visibilityState === "visible") {
     document.title = "Portfolio | Ab Raheman Shaikh";
     $("#favicon").attr("href", "assets/images/favicon.png");
   } else {
-    document.title = "Come Back To Portfolio";
+    document.title = "Come Back To Portfolio 👋";
     $("#favicon").attr("href", "assets/images/favhand.png");
   }
 });
 
-
-// Typed.js Effect
+// === Typed.js Effect ===
 new Typed(".typing-text", {
   strings: [
     "frontend development",
@@ -85,7 +83,6 @@ new Typed(".typing-text", {
   backSpeed: 25,
   backDelay: 500,
 });
-
 
 // === Skills Section ===
 async function fetchSkills() {
@@ -129,7 +126,6 @@ async function initSkills() {
 
 initSkills();
 
-
 // === Projects Section ===
 function fetchProjects() {
   return fetch("projects/projects.json")
@@ -159,8 +155,10 @@ function showProjects(projects) {
     </div>
   `).join('');
 
+  // Tilt Effect
   VanillaTilt.init(document.querySelectorAll(".tilt"), { max: 15 });
 
+  // Scroll Reveal
   ScrollReveal().reveal('#work .box', {
     origin: 'top',
     distance: '80px',
@@ -170,6 +168,41 @@ function showProjects(projects) {
 }
 
 fetchProjects().then(showProjects);
+
+// === Achievements Section ===
+async function loadAchievements() {
+  try {
+    // ✅ Make sure achievement.json path is correct (example: assets/data/achievement.json)
+    const response = await fetch("achievement.json");
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    const achievements = await response.json();
+    const container = document.getElementById("achievement-list");
+
+    if (!container) {
+      console.error("❌ Achievement container not found!");
+      return;
+    }
+
+    container.innerHTML = achievements.map(a => `
+      <div class="achievement-item">
+        <img src="${a.image}" alt="${a.title} Logo">
+        <h2>${a.title}</h2>
+        <p>${a.description}</p>
+        <div class="buttons">
+          ${a.buttons.map(btn =>
+            `<a href="${btn.link}" class="btn" target="_blank" rel="noopener noreferrer">
+              ${btn.text} 📄
+            </a>`
+          ).join("")}
+        </div>
+      </div>
+    `).join('');
+  } catch (error) {
+    console.error("⚠️ Error loading achievements:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadAchievements);
 
 
 // === Disable Developer Mode ===
@@ -183,7 +216,6 @@ document.onkeydown = function (e) {
   }
 };
 
-
 // === Tawk.to Live Chat ===
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 (function () {
@@ -195,7 +227,6 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   s0.parentNode.insertBefore(s1, s0);
 })();
 
-
 // === Scroll Reveal Animations ===
 const srtop = ScrollReveal({
   origin: 'top',
@@ -206,10 +237,10 @@ const srtop = ScrollReveal({
 
 srtop.reveal('.home .content h3, .home .content p, .home .content .btn', { delay: 200 });
 srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin, .home .github, .home .twitter, .home .telegram, .home .instagram, .home .dev', { interval: 200 });
-srtop.reveal('.about .content h3, .about .content .tag, .about .content p, .about .content .box-container, .about .content .resumebtn', { delay: 200 });
-srtop.reveal('.skills .container, .skills .container .bar', { interval: 200 });
+srtop.reveal('.home .socials a', { interval: 200 });
+srtop.reveal('.about .content h3, .about .content p, .about .content .box-container, .about .content .resumebtn', { delay: 200 });
+srtop.reveal('.skills .container, .skills .bar', { interval: 200 });
 srtop.reveal('.education .box', { interval: 200 });
 srtop.reveal('.work .box', { interval: 200 });
 srtop.reveal('.experience .timeline, .experience .timeline .container', { interval: 400 });
-srtop.reveal('.contact .container, .contact .container .form-group', { delay: 400 });
+srtop.reveal('.contact .container, .contact .form-group', { delay: 400 });
