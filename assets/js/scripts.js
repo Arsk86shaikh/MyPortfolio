@@ -216,26 +216,21 @@ $(document).ready(function () {
       return false;
     }
   };
-
-  // === Tawk.to Live Chat ===
+// === Tawk.to Live Chat (Fixed) ===
+window.addEventListener("load", function () {
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   (function () {
     var s1 = document.createElement("script"),
       s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
+    s1.src = "https://embed.tawk.to/68f22916f76abd1951378638/1j7ov114i";
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
     s0.parentNode.insertBefore(s1, s0);
   })();
+});
 
-  // === Scroll Reveal Animations ===
-  const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
-  });
+
 
   srtop.reveal('.home .content h3, .home .content p, .home .content .btn', { delay: 200 });
   srtop.reveal('.home .image', { delay: 400 });
